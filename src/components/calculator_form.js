@@ -56,6 +56,7 @@ function CalculatorForm() {
           onChange={(e) => handleChange(e, setSize1)}
         />
         <TextField sx={{marginBottom: 2}}
+                   
           label="Размер 2, см"
           variant="outlined"
           value={size2}
