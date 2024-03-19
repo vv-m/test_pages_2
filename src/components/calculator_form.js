@@ -18,7 +18,7 @@ function CalculatorForm() {
       return;
     }
     const res = Number(weight) * Number(size1) * Number(size2) * Number(size3);
-    setResult(`Результат: ${res}`);
+    setResult(`Себестоимость: ${res} руб.`);
   };
 
   const clearFields = () => {
@@ -34,53 +34,54 @@ function CalculatorForm() {
   return (
     <Box
       sx={{
-        '& .MuiFormControl-root': { m: 1, minWidth: '25ch' },
+        // '& .MuiFormControl-root': { m: 1, minWidth: '300px' },
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh',
         fontFamily: 'Play, sans-serif'
       }}
       noValidate
       autoComplete="off"
     >
-      <Typography variant="h6" sx={{ fontFamily: 'Play, sans-serif' }}>Рассчитать результат</Typography>
+      <Typography variant="h5" sx={{ fontFamily: 'Play, sans-serif', marginBottom: 3}}>Расчет себестоимости</Typography>
       <FormControl variant="outlined">
-        <TextField
+        <TextField sx={{marginBottom: 2}}
           label="Вес, кг"
           variant="outlined"
           value={weight}
           onChange={(e) => handleChange(e, setWeight)}
         />
-      </FormControl>
-      <FormControl variant="outlined">
-        <TextField
+        <TextField sx={{marginBottom: 2}}
           label="Размер 1, см"
           variant="outlined"
           value={size1}
           onChange={(e) => handleChange(e, setSize1)}
         />
-      </FormControl>
-      <FormControl variant="outlined">
-        <TextField
+        <TextField sx={{marginBottom: 2}}
           label="Размер 2, см"
           variant="outlined"
           value={size2}
           onChange={(e) => handleChange(e, setSize2)}
         />
-      </FormControl>
-      <FormControl variant="outlined">
-        <TextField
+        <TextField sx={{marginBottom: 2}}
           label="Размер 3, см"
           variant="outlined"
           value={size3}
           onChange={(e) => handleChange(e, setSize3)}
         />
-      </FormControl>
-      <Button variant="contained" color="primary" onClick={clearFields} sx={{ my: 2, fontFamily: 'Play, sans-serif' }}>
+      <Button variant="contained"
+              color="primary"
+              onClick={clearFields}
+              sx={{ marginTop: 1,
+                fontFamily: 'Play, sans-serif',
+                width: '300px',
+                height: '56px'
+              }}>
         Очистить
       </Button>
-      <Divider sx={{ width: '100%', mb: 2 }} />
+      <Divider sx={{ width: 'inherit', m: 2 }} />
       <Typography variant="body1" sx={{ color: result === 'Заполните все поля' ? 'red' : 'black', fontFamily: 'Play, sans-serif' }}>
         {result || 'Результат будет отображен здесь'}
       </Typography>
+      </FormControl>
     </Box>
   );
 }
