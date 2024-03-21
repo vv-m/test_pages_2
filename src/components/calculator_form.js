@@ -10,6 +10,7 @@ import {
     Select,
     MenuItem,
 } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Delete';
 import ProductCard from "./card_delivery";
 
 export const alarmTextAir = "Вес превышен\n (до 50кг)"
@@ -41,6 +42,7 @@ let air = {
     name: "Авиа ✈️",
     deliveryTime: "12-17"  // дней
 }
+
 
 function CalculatorForm() {
     const [weight, setWeight] = useState('');
@@ -245,15 +247,18 @@ function CalculatorForm() {
                             <MenuItem value="RMB">RMB</MenuItem>
                         </Select>
                     </FormControl>
-                    <Button variant="contained"
-                            color="primary"s
+                    <Button variant="outlined"
+
+                            color="primary"
                             onClick={clearFields}
                             sx={{
                                 marginTop: 1,
                                 fontFamily: 'Play, sans-serif',
                                 width: '363px',
                                 height: '56px'
-                            }}>
+                            }}
+                            startIcon={<ClearIcon />}
+                    >
                         Очистить
                     </Button>
                     <Divider sx={{width: 'inherit', m: 2}}/>
